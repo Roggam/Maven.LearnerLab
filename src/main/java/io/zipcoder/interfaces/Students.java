@@ -2,8 +2,8 @@ package io.zipcoder.interfaces;
 
 public final class Students extends People<Student> {
 
-    //final makes is unextendable
-    private static final Students INSTANCE = new Students();
+
+    private static final Students INSTANCE = new Students();//final makes is unextendable
 
     private Students() {
         add(new Student(1L, "JR"));
