@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class People<S extends Person> {
-    private List<Person> personList = new ArrayList<>();
+public abstract class People<E extends Person> implements Iterable<E> {
+    private List<E> personList = new ArrayList<>();
 
 
-    public void add(Person person) {
+    public void add(E person) {
         personList.add(person);
     }
 
-    public Person findById(long id) {
-        Person newPerson = null;
-        for (Person person : personList) {
+    public E findById(long id) {
+        E newPerson = null;
+        for (E person : personList) {
             if (id == person.getId()) ;
             newPerson = person;
         }
@@ -23,17 +23,17 @@ public class People<S extends Person> {
     }
 
 
-    public Boolean contains(Person person) {
+    public Boolean contains(E person) {
 
         return personList.contains(person);
     }
 
-    public void remove(Person person) {
+    public void remove(E person) {
         personList.remove(person);
     }
 
     public void removeById(long id) {
-        for (Person person : personList) {
+        for (E person : personList) {
             if (person.getId() == id) {
                 personList.remove(person);
             }
@@ -42,27 +42,28 @@ public class People<S extends Person> {
 
     }
 
-    public void removeAll(){
-     personList.clear();
+    public void removeAll() {
+        personList.clear();
 
     }
 
-    public int count(){
+    public int count() {
 
         return personList.size();
     }
 
+public abstract E[] getArray();
+//
+//    public E[] toArray() {
+//        return personList.toArray(new E[0]);
+//    }
 
-    public Person[] toArray(){
-      return personList.toArray(new Person[0]);
-    }
 
-
-    public Iterator<Person> iterator(){
+    public Iterator<E> iterator() {
         return personList.iterator();
     }
 
-    public List<Person> getPersonList() {
+    public List<E> getPersonList() {
         return personList;
     }
 }

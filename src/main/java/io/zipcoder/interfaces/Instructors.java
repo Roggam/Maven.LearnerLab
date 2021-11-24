@@ -12,4 +12,9 @@ public class Instructors extends People<Instructor>{
     public static Instructors getInstance(){
         return INSTANCE;
     }
+
+
+    public Instructor[] getArray(){
+        return super.getPersonList().toArray(new Instructor[0]);
+    }
 }

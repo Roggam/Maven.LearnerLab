@@ -22,4 +22,7 @@ public final class Students extends People<Student> {
     public static Students getINSTANCE() { //struggled with this static method
         return INSTANCE;
     }
+    public Student[] getArray(){
+        return getPersonList().toArray(new Student[0]);
+    }
 }

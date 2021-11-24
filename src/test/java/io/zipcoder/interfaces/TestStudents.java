@@ -9,7 +9,7 @@ public class TestStudents {
     public void test() {
         Students students = Students.getINSTANCE();
 
-        int expected = 11;
+        int expected = 15; // it's 15 because I added more students to instance on people test
         int actual = students.count();
 
         Assert.assertEquals(expected, actual);
